@@ -43,5 +43,5 @@ const preferred=localStorage.getItem('basalt-lang')||(
 );
 setLanguage(preferred,false);
 document.getElementById('year').textContent=new Date().getFullYear();
-document.getElementById('menu').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
-document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+document.getElementById('menu').addEventListener('click',()=>{const nav=document.getElementById('nav');const open=nav.classList.toggle('open');document.getElementById('menu').setAttribute('aria-expanded',String(open));});
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav').classList.remove('open');document.getElementById('menu').setAttribute('aria-expanded','false');}));
